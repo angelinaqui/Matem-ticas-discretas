@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Relaciones de recurrencia1</title>
+    <meta name="generator" content="wxMaxima"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/x-mathjax-config">  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax",
+    TeX: {TagSide: "left"}
+  })
+</script>
+    <script id="MathJax-script" type="application/javascript" async="true" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">  // A comment that hinders wxWidgets from optimizing this tag too much.
+</script>
+    <link rel="stylesheet" type="text/css" href="Relaciones%20de%20recurrencia1_htmlimg/Relaciones%20de%20recurrencia1.css"/>
+  </head>
+  <body>
+    <!-- ****************************************************** -->
+    <!-- *        Created with wxMaxima version 23.05.1       * -->
+    <!-- ****************************************************** -->
+    <noscript>
+      <div class="error message">
+        <p>Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</p>
+      </div>
+    </noscript>
+    <p hidden="hidden">\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)</p>
+    <!-- Title cell -->
+    <div class="title">
+      <p>Relaciones de recurrencia
+</p>
+    </div>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  1 Números de Pell
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i2)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">kill</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">rec</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">coef</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">rec</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">−</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec)	}{s_n}\operatorname{-}2 {s_{n\operatorname{-}1}}\operatorname{-}{s_{n\operatorname{-}2}}\operatorname{=}0\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i4)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">p</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">solve</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">p</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(p)	}{{r}^{2}}\operatorname{-}2 r\operatorname{-}1\]
+</p>
+    <p>\[\operatorname{(ro)	}\left[ r\operatorname{=}1\operatorname{-}\sqrt{2}\operatorname{,}r\operatorname{=}\sqrt{2}\operatorname{+}1\right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i5)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec1</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec1)	}{s_n}\operatorname{=}{{r}_{2}^{n}} {{\alpha }_2}\operatorname{+}{{r}_{1}^{n}} {{\alpha }_1}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i6)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec2)	}{s_n}\operatorname{=}\left( {{\alpha }_2} {{r}^{n}}\operatorname{+}{{\alpha }_1} {{r}^{n}}\operatorname{=}{{\alpha }_1} {{r}^{n}}\operatorname{+}{{\left( \sqrt{2}\operatorname{+}1\right) }^{n}} {{\alpha }_2}\operatorname{=}\left( {{\alpha }_2} {{r}^{n}}\operatorname{+}{{\left( 1\operatorname{-}\sqrt{2}\right) }^{n}} {{\alpha }_1}\operatorname{=}{{\left( \sqrt{2}\operatorname{+}1\right) }^{n}} {{\alpha }_2}\operatorname{+}{{\left( 1\operatorname{-}\sqrt{2}\right) }^{n}} {{\alpha }_1}\right) \right) \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i8)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{s_0}\operatorname{=}\left( {{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}{{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}\left( {{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}{{\alpha }_2}\operatorname{+}{{\alpha }_1}\right) \right) \operatorname{=}0\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i10)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{s_1}\operatorname{=}\left( {{\alpha }_2} r\operatorname{+}{{\alpha }_1} r\operatorname{=}{{\alpha }_1} r\operatorname{+}\left( \sqrt{2}\operatorname{+}1\right)  {{\alpha }_2}\operatorname{=}\left( {{\alpha }_2} r\operatorname{+}\left( 1\operatorname{-}\sqrt{2}\right)  {{\alpha }_1}\operatorname{=}\left( \sqrt{2}\operatorname{+}1\right)  {{\alpha }_2}\operatorname{+}\left( 1\operatorname{-}\sqrt{2}\right)  {{\alpha }_1}\right) \right) \operatorname{=}1\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i11)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">coef</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">algsys</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">−</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">+</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(coef)	}\left[ \left[ {{\alpha }_1}\operatorname{=}\operatorname{-}\left( \frac{1}{{{2}^{\frac{3}{2}}}}\right) \operatorname{,}{{\alpha }_2}\operatorname{=}\frac{1}{{{2}^{\frac{3}{2}}}}\right] \right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i12)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec3</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec3)	}{s_n}\operatorname{=}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i13)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_endofline"/>
+            <span class="code_variable">s</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_endofline">−</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">^</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">−</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">^</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{s_n}\operatorname{:=}\operatorname{-}\left( \frac{1}{{{2}^{\frac{3}{2}}}}\right)  {{\left( 1\operatorname{-}\sqrt{2}\right) }^{n}}\operatorname{+}\frac{1}{{{2}^{\frac{3}{2}}}} {{\left( \sqrt{2}\operatorname{+}1\right) }^{n}}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">s[n] = -\frac{1}{2^{\frac{3}{2}}}(1-\sqrt{2})^n + \frac{1}{2^{\frac{3}{2}}}(\sqrt{2}+1)^n;
+</div>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  2 Números de Fibonacci
+        <br/>
+      </p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i15)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">kill</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">rec</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">coef</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">rec</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">f</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">−</span>
+            <span class="code_variable">f</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">−</span>
+            <span class="code_variable">f</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec)	}{f_n}\operatorname{-}{f_{n\operatorname{-}1}}\operatorname{-}{f_{n\operatorname{-}2}}\operatorname{=}0\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i17)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">p</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">−</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">solve</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">p</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(p)	}{{r}^{2}}\operatorname{-}r\operatorname{-}1\]
+</p>
+    <p>\[\operatorname{(ro)	}\left[ r\operatorname{=}\operatorname{-}\left( \frac{\sqrt{5}\operatorname{-}1}{2}\right) \operatorname{,}r\operatorname{=}\frac{\sqrt{5}\operatorname{+}1}{2}\right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i18)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec1</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">f</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec1)	}{f_n}\operatorname{=}{{r}_{2}^{n}} {{\alpha }_2}\operatorname{+}{{r}_{1}^{n}} {{\alpha }_1}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i19)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec2)	}{f_n}\operatorname{=}\left( {{\alpha }_2} {{r}^{n}}\operatorname{+}{{\alpha }_1} {{r}^{n}}\operatorname{=}{{\alpha }_1} {{r}^{n}}\operatorname{+}\frac{{{\left( \sqrt{5}\operatorname{+}1\right) }^{n}} {{\alpha }_2}}{{{2}^{n}}}\operatorname{=}\left( {{\alpha }_2} {{r}^{n}}\operatorname{+}\frac{{{\left( \sqrt{5}\operatorname{-}1\right) }^{n}} {{\alpha }_1} {{\left( \operatorname{-}1\right) }^{n}}}{{{2}^{n}}}\operatorname{=}\frac{{{\left( \sqrt{5}\operatorname{-}1\right) }^{n}} {{\alpha }_1} {{\left( \operatorname{-}1\right) }^{n}}}{{{2}^{n}}}\operatorname{+}\frac{{{\left( \sqrt{5}\operatorname{+}1\right) }^{n}} {{\alpha }_2}}{{{2}^{n}}}\right) \right) \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i21)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{f_0}\operatorname{=}\left( {{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}{{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}\left( {{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}{{\alpha }_2}\operatorname{+}{{\alpha }_1}\right) \right) \operatorname{=}0\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i23)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{f_1}\operatorname{=}\left( {{\alpha }_2} r\operatorname{+}{{\alpha }_1} r\operatorname{=}{{\alpha }_1} r\operatorname{+}\frac{\left( \sqrt{5}\operatorname{+}1\right)  {{\alpha }_2}}{2}\operatorname{=}\left( {{\alpha }_2} r\operatorname{-}\frac{\left( \sqrt{5}\operatorname{-}1\right)  {{\alpha }_1}}{2}\operatorname{=}\frac{\left( \sqrt{5}\operatorname{+}1\right)  {{\alpha }_2}}{2}\operatorname{-}\frac{\left( \sqrt{5}\operatorname{-}1\right)  {{\alpha }_1}}{2}\right) \right) \operatorname{=}1\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i24)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">coef</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">algsys</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">·</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">−</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">·</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(coef)	}\left[ \left[ {{\alpha }_1}\operatorname{=}\operatorname{-}\left( \frac{1}{\sqrt{5}}\right) \operatorname{,}{{\alpha }_2}\operatorname{=}\frac{1}{\sqrt{5}}\right] \right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i25)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec3</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec3)	}{f_n}\operatorname{=}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i26)	
+  </span>
+        </td>
+        <td>
+          <span class="input">    
+            <span class="code_variable">f</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_endofline">−</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_endofline">−</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">5</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{f_n}\operatorname{:=}\operatorname{-}\left( \frac{1}{\sqrt{5}}\right)  {{\left( \operatorname{-}\left( \frac{\sqrt{5}\operatorname{-}1}{2}\right) \right) }^{n}}\operatorname{+}\frac{1}{\sqrt{5}} {{\left( \frac{\sqrt{5}\operatorname{+}1}{2}\right) }^{n}}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">f[n] = -\frac{1}{\sqrt{5}}\left(-\left(\frac{\sqrt{5}-1}{2}\right)\right)^n + \frac{1}{\sqrt{5}}\left(\frac{\sqrt{5}+1}{2}\right)^n
+</div>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  3 Números triangulares
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i28)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">kill</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">rec</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec3</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">coef</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">rec</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">t</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">t</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">t</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">−</span>
+            <span class="code_variable">t</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec)	}{t_n}\operatorname{-}3 {t_{n\operatorname{-}1}}\operatorname{+}3 {t_{n\operatorname{-}2}}\operatorname{-}{t_{n\operatorname{-}3}}\operatorname{=}0\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i30)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">p</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">solve</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">p</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(p)	}{{r}^{3}}\operatorname{-}3 {{r}^{2}}\operatorname{+}3 r\operatorname{-}1\]
+</p>
+    <p>\[\operatorname{(ro)	}\left[ r\operatorname{=}1\right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i31)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec1</span>
+            <span class="code_operator">:</span>
+            <span class="code_variable">t</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec1)	}{t_n}\operatorname{=}{r_3} {{\alpha }_3} {{n}^{2}}\operatorname{+}{{r}_{2}^{n}} {{\alpha }_2} n\operatorname{+}{{r}_{1}^{n}} {{\alpha }_1}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i32)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">ro</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">ro</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">r</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">ro</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec1</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec2)	}{t_n}\operatorname{=}\left[ \left[ {{\alpha }_1} {{r}^{n}}\operatorname{+}{{\alpha }_3} {{n}^{2}} r\operatorname{+}{{r}_{2}^{n}} {{\alpha }_2} n\operatorname{=}{{\alpha }_1} {{r}^{n}}\operatorname{+}{{\alpha }_3} {{n}^{2}}\operatorname{+}{{r}_{2}^{n}} {{\alpha }_2} n\right] \operatorname{=}\left[ {{\alpha }_3} {{n}^{2}} r\operatorname{+}{{r}_{2}^{n}} {{\alpha }_2} n\operatorname{+}{{\alpha }_1}\operatorname{=}{{\alpha }_3} {{n}^{2}}\operatorname{+}{{r}_{2}^{n}} {{\alpha }_2} n\operatorname{+}{{\alpha }_1}\right] \right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i34)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{t_0}\operatorname{=}\left[ \left[ {{\alpha }_1}\operatorname{=}{{\alpha }_1}\right] \operatorname{=}\left[ {{\alpha }_1}\operatorname{=}{{\alpha }_1}\right] \right] \operatorname{=}0\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i36)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{t_1}\operatorname{=}\left[ \left[ {{\alpha }_3} r\operatorname{+}{{\alpha }_1} r\operatorname{+}{r_2} {{\alpha }_2}\operatorname{=}{{\alpha }_1} r\operatorname{+}{{\alpha }_3}\operatorname{+}{r_2} {{\alpha }_2}\right] \operatorname{=}\left[ {{\alpha }_3} r\operatorname{+}{r_2} {{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}{{\alpha }_3}\operatorname{+}{r_2} {{\alpha }_2}\operatorname{+}{{\alpha }_1}\right] \right] \operatorname{=}1\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i38)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">$</span>
+            <span class="code_variable">%</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">3</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{t_2}\operatorname{=}\left[ \left[ {{\alpha }_1} {{r}^{2}}\operatorname{+}4 {{\alpha }_3} r\operatorname{+}2 {{r}_{2}^{2}} {{\alpha }_2}\operatorname{=}{{\alpha }_1} {{r}^{2}}\operatorname{+}4 {{\alpha }_3}\operatorname{+}2 {{r}_{2}^{2}} {{\alpha }_2}\right] \operatorname{=}\left[ 4 {{\alpha }_3} r\operatorname{+}2 {{r}_{2}^{2}} {{\alpha }_2}\operatorname{+}{{\alpha }_1}\operatorname{=}4 {{\alpha }_3}\operatorname{+}2 {{r}_{2}^{2}} {{\alpha }_2}\operatorname{+}{{\alpha }_1}\right] \right] \operatorname{=}3\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i39)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">coef</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">algsys</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_3</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_operator">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">+</span>
+            <span class="code_variable">α_3</span>
+            <span class="code_operator">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">4</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α_1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_2</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α_3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(coef)	}\left[ \left[ {{\alpha }_1}\operatorname{=}0\operatorname{,}{{\alpha }_2}\operatorname{=}\frac{1}{2}\operatorname{,}{{\alpha }_3}\operatorname{=}\frac{1}{2}\right] \right] \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i40)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">rec3</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">subst</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">α</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">coef</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">[</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">rec2</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{(rec3)	}{t_n}\operatorname{=}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i41)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">t</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_function">n</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">+</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">·</span>
+            <span class="code_variable">n</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_endofline">·</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">^</span>
+            <span class="code_variable">n</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{t_n}\operatorname{:=}\frac{1}{2} {{\operatorname{n}(1)}^{n}}\operatorname{+}\frac{1}{2} {{n}^{2}} {{1}^{n}}\]
+</p>
+    <!-- Text cell -->
+    <div class="comment">t[n] = \frac{1}{2}n(1)^n + \frac{1}{2}n^2(1)^n
+</div>
+    <!-- Text cell -->
+    <div class="comment"/>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input"/>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <p>
+      <small> Created with 
+        <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small>
+    </p>
+    <small> The source of this Maxima session can be downloaded 
+      <a href="Relaciones de recurrencia1_htmlimg/Relaciones de recurrencia1.wxmx">here</a>.</small>
+  </body>
+</html>
